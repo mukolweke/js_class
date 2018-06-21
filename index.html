@@ -1,0 +1,155 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="../css/foundation.css">
+    <link rel="stylesheet" href="../css/app.css">
+  </head>
+  <body>
+    <embed class="cy_logo" type="image/svg+xml" src="src/cytonn_logo.svg" /></div>
+    <!-- navigartion -->
+      <nav class="top-bar" data-topbar role="navigation" style="height: 80px;margin-bottom: 30px;background-color: #006666;color: white;">
+        <div class="container" style="height: 55px;">
+          <ul class="title-area">
+            <li class="name">
+              <a class="nav_link" href="#">Home</a>
+            </li>
+            <li class="name">
+              <a class="nav_link" href="#">Food Menu</a>
+            </li>
+          </ul>
+        </div>
+     </nav>
+     <div class="container">
+       <div class="grid-container">
+
+         <!-- <div class="grid-x grid-padding-x">
+           <div class="large-12 cell">
+             <table>
+               <thead style="background-color: #006666;color: #fff;">
+                 <tr>
+                   <th colspan="3" class="text-center">Mama Milkas Hotel</th>
+                 </tr>
+                 <tr>
+                   <th width="200">Day</th>
+                   <th width="150">Time</th>
+                   <th width="150">Delicacy</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                     <td>Monday</td>
+                     <td>Lunch</td>
+                     <td>Githeri</td>
+                   </tr>
+                   <tr>
+                     <td>Tuesday</td>
+                     <td>Lunch</td>
+                     <td>Mokimo</td>
+                   </tr>
+                   <tr>
+                     <td>Wednesday</td>
+                     <td>Lunch</td>
+                     <td>Ugali, Nyama</td>
+                   </tr>
+                   <tr>
+                     <td>Thursday</td>
+                     <td>Lunch</td>
+                     <td>Fried Rice</td>
+                   </tr>
+                   <tr>
+                     <td>Friday</td>
+                     <td>Lunch</td>
+                     <td>Chapo Madondo</td>
+                   </tr>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+         </div>
+         <hr/>
+         <div class="grid-x grid-padding-x">
+           <div class="large-12 medium-12 cell">
+             <h4 class="imgage-h4">Cytonn Team</h4>
+             <div class="images">
+               <ul class="small-block-grid-3">
+                 <li>
+                     <a class="th" role="button" aria-label="Thumbnail" href="src/img1.jpg">
+                       <img class="th" src="src/img1.jpg" style="height: 250px;" aria-hidden=true alt="cytonn">
+                     </a>
+                  </li>
+                   <li style="margin-left: 10px;">
+                     <a class="th" role="button" aria-label="Thumbnail" href="src/img2.jpg">
+                       <img class="th" src="src/img2.jpg" style="height: 250px;" aria-hidden=true alt="cytonn">
+                     </a>
+                   </li>
+                   <li style="margin-left: 10px;">
+                     <a class="th" role="button" aria-label="Thumbnail" href="src/img4.jpg">
+                       <img class="th" src="src/img4.jpg" style="height: 250px;" aria-hidden=true alt="cytonn">
+                     </a>
+                   </li>
+               </ul>
+             </div>
+           </div>
+         </div>
+         <hr/>-->
+         <h4>Self Invoking ...</h4>
+         <input type="button" value="click me" onclick="(incrementClickCounter());"/>
+         <br/><p>Count: <span id="count">0</span></p>
+         <hr/>
+         <h4>Closure Example ...</h4>
+         <br/><p>Number Generated on load: <span id="closure">0</span></p>
+         <hr/>
+       </div>
+     </div>
+
+     <script type="text/javascript">
+       "use strict"
+       //test object
+       //can be accessed via window inspect, console section i.e. point.property
+       let point = {
+           x: 5,
+           y: 2,
+           dist: function () {
+               return Math.sqrt((this.x*this.x)+(this.y*this.y));
+           },
+           toString: function () {
+               return "("+this.x+", "+this.y+")";
+           }
+       };
+
+       
+       //self invoking function
+       let incrementClickCounter = (function (){
+         let clickCounter = 0;
+          return function(){
+            return document.getElementById("count").innerHTML = ++clickCounter;
+          }
+       })();
+
+       //closure
+       function numberGenerator() {
+          // Local “free” variable that ends up within the closure
+          var num = 3;
+          function checkNumber() {
+            return document.getElementById("closure").innerHTML = num;
+          }
+          num++;
+          return checkNumber;
+        }
+
+        var number = numberGenerator();
+        number(); // 2
+
+
+     </script>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
