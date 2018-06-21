@@ -4,13 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
+    <title>JS Class</title>
     <link rel="stylesheet" href="../css/foundation.css">
     <link rel="stylesheet" href="../css/app.css">
-    <style type="text/css">
-    .my_button{
-    }
-    </style>
   </head>
   <body>
     <embed class="cy_logo" type="image/svg+xml" src="src/cytonn_logo.svg" /></div>
@@ -30,35 +26,34 @@
      <div class="container">
        <div class="grid-container">
 
-         <h4>Self Invoking ...</h4>
+         <h4>Self Invoking && Closure concepts...</h4>
          <input type="button" class="success button hollow" value="click me" onclick="(incrementClickCounter());"/>
          <br/>
          <p>Count to: <span id="count">0</span></p>
          <hr/>
-         <h4>Closure Example ...</h4>
-         <br/><p>Number Generated on load: <span id="closure">0</span></p>
-         <hr/>
-         <h4>Creating an Object</h4>
-         <span class="">Enter a number and get the square root</span>
-         <div class="row" style="margin-top:20px;">
+         <h4>Prototype && Closure && Objects concepts...</h4>
+         <div class="row">
            <form action="" method="get">
              <div class="grid-container">
                <div class="grid-x grid-padding-x">
                  <div class="medium-4 cell">
-                     <input type="number" name="numb" id="numb">
+                   <label>First Name: </label>
+                     <input type="text" name="firstname" id="firstname">
                  </div>
                  <div class="medium-4 cell">
-                   <button type="button" onclick="getSqrt()" class="success button expanded my_button">SUBMIT</button>
+                   <label>Last Name: </label>
+                   <input type="text" name="lastname" id="lastname">
                  </div>
                  <div class="medium-4 cell">
-                   <p> Result is:&nbsp;<span id="form_result">0</span><p>
+                   <label>Department: </label>
+                   <input type="text" name="department" id="department">
                  </div>
                </div>
              </div>
             </form>
-            <!-- <p id="form_result">0</p> -->
-            <br/>
          </div>
+         <input type="button" class="success button hollow" value="Get Cytonn Email" onclick="(newInternEmail());"/>
+         <p>User Email:&nbsp;&nbsp;<span id="intern"></span></p>
        </div>
      </div>
 
@@ -66,14 +61,28 @@
      // strict directive
        "use strict"
 
-       let sampleObject = (function () {
-                let inpt = document.getElementById("numb").value;
-                return function(){ return Math.sqrt(inpt) }
-            })();
+       //prototype, closure and objects....
 
-       function getSqrt(){
-         document.getElementById("form_result").innerHTML = sampleObject();
-       }
+        function newInternEmail(){
+          let fname = document.getElementById("firstname").value;
+          let lname = document.getElementById("lastname").value;
+          let dname = document.getElementById("department").value;
+
+          let newIntern = new Intern(fname,lname,dname);
+
+          function Intern(first, last, dept) {
+               this.firstName = first;
+               this.lastName = last;
+               this.department = dept;
+           }
+
+           Intern.prototype.email = function() {
+               return this.firstName.slice(0,1)+this.lastName + "@cytonn.com"
+           };
+
+          console.log(newIntern.email());
+          document.getElementById("intern").innerHTML = newIntern.email();
+        }
 
 
        //self invoking function
@@ -84,19 +93,6 @@
           }
        })();
 
-       //closure
-       function numberGenerator() {
-          // Local “free” variable that ends up within the closure
-          var num = 1;
-          function checkNumber() {
-            return document.getElementById("closure").innerHTML = num;
-          }
-          num++;
-          return checkNumber;
-        }
-
-        var number = numberGenerator();
-        number(); // 2
 
 
      </script>
