@@ -7,6 +7,10 @@
     <title>Foundation for Sites</title>
     <link rel="stylesheet" href="../css/foundation.css">
     <link rel="stylesheet" href="../css/app.css">
+    <style type="text/css">
+    .my_button{
+    }
+    </style>
   </head>
   <body>
     <embed class="cy_logo" type="image/svg+xml" src="src/cytonn_logo.svg" /></div>
@@ -26,106 +30,56 @@
      <div class="container">
        <div class="grid-container">
 
-         <!-- <div class="grid-x grid-padding-x">
-           <div class="large-12 cell">
-             <table>
-               <thead style="background-color: #006666;color: #fff;">
-                 <tr>
-                   <th colspan="3" class="text-center">Mama Milkas Hotel</th>
-                 </tr>
-                 <tr>
-                   <th width="200">Day</th>
-                   <th width="150">Time</th>
-                   <th width="150">Delicacy</th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <tr>
-                     <td>Monday</td>
-                     <td>Lunch</td>
-                     <td>Githeri</td>
-                   </tr>
-                   <tr>
-                     <td>Tuesday</td>
-                     <td>Lunch</td>
-                     <td>Mokimo</td>
-                   </tr>
-                   <tr>
-                     <td>Wednesday</td>
-                     <td>Lunch</td>
-                     <td>Ugali, Nyama</td>
-                   </tr>
-                   <tr>
-                     <td>Thursday</td>
-                     <td>Lunch</td>
-                     <td>Fried Rice</td>
-                   </tr>
-                   <tr>
-                     <td>Friday</td>
-                     <td>Lunch</td>
-                     <td>Chapo Madondo</td>
-                   </tr>
-                 </tr>
-               </tbody>
-             </table>
-           </div>
-         </div>
-         <hr/>
-         <div class="grid-x grid-padding-x">
-           <div class="large-12 medium-12 cell">
-             <h4 class="imgage-h4">Cytonn Team</h4>
-             <div class="images">
-               <ul class="small-block-grid-3">
-                 <li>
-                     <a class="th" role="button" aria-label="Thumbnail" href="src/img1.jpg">
-                       <img class="th" src="src/img1.jpg" style="height: 250px;" aria-hidden=true alt="cytonn">
-                     </a>
-                  </li>
-                   <li style="margin-left: 10px;">
-                     <a class="th" role="button" aria-label="Thumbnail" href="src/img2.jpg">
-                       <img class="th" src="src/img2.jpg" style="height: 250px;" aria-hidden=true alt="cytonn">
-                     </a>
-                   </li>
-                   <li style="margin-left: 10px;">
-                     <a class="th" role="button" aria-label="Thumbnail" href="src/img4.jpg">
-                       <img class="th" src="src/img4.jpg" style="height: 250px;" aria-hidden=true alt="cytonn">
-                     </a>
-                   </li>
-               </ul>
-             </div>
-           </div>
-         </div>
-         <hr/>-->
          <h4>Self Invoking ...</h4>
-         <input type="button" value="click me" onclick="(incrementClickCounter());"/>
-         <br/><p>Count: <span id="count">0</span></p>
+         <input type="button" class="success button hollow" value="click me" onclick="(incrementClickCounter());"/>
+         <br/>
+         <p>Count to: <span id="count">0</span></p>
          <hr/>
          <h4>Closure Example ...</h4>
          <br/><p>Number Generated on load: <span id="closure">0</span></p>
          <hr/>
+         <h4>Creating an Object</h4>
+         <span class="">Enter a number and get the square root</span>
+         <div class="row" style="margin-top:20px;">
+           <form action="" method="get">
+             <div class="grid-container">
+               <div class="grid-x grid-padding-x">
+                 <div class="medium-4 cell">
+                     <input type="number" name="numb" id="numb">
+                 </div>
+                 <div class="medium-4 cell">
+                   <button type="button" onclick="getSqrt()" class="success button expanded my_button">SUBMIT</button>
+                 </div>
+                 <div class="medium-4 cell">
+                   <p> Result is:&nbsp;<span id="form_result">0</span><p>
+                 </div>
+               </div>
+             </div>
+            </form>
+            <!-- <p id="form_result">0</p> -->
+            <br/>
+         </div>
        </div>
      </div>
 
      <script type="text/javascript">
+     // strict directive
        "use strict"
-       //test object
-       //can be accessed via window inspect, console section i.e. point.property
-       let point = {
-           x: 5,
-           y: 2,
-           dist: function () {
-               return Math.sqrt((this.x*this.x)+(this.y*this.y));
-           },
-           toString: function () {
-               return "("+this.x+", "+this.y+")";
-           }
-       };
 
-       
+       let sampleObject = (function () {
+                let inpt = document.getElementById("numb").value;
+                return function(){ return Math.sqrt(inpt) }
+            })();
+
+       function getSqrt(){
+         document.getElementById("form_result").innerHTML = sampleObject();
+       }
+
+
        //self invoking function
        let incrementClickCounter = (function (){
          let clickCounter = 0;
-          return function(){
+         return function(){
             return document.getElementById("count").innerHTML = ++clickCounter;
           }
        })();
@@ -133,7 +87,7 @@
        //closure
        function numberGenerator() {
           // Local “free” variable that ends up within the closure
-          var num = 3;
+          var num = 1;
           function checkNumber() {
             return document.getElementById("closure").innerHTML = num;
           }
