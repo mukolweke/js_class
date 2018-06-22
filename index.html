@@ -115,6 +115,30 @@
       </div>
     </div>
     <hr>
+    <h4>Promises in JS</h4>
+    <form>
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="medium-3 cell">
+            <label>Task 1: </label>
+            <input type="text" id="task1">
+          </div>
+          <div class="medium-3 cell">
+            <label>Task 2: </label>
+            <input type="text" id="task2">
+          </div>
+          <div class="medium-3 cell">
+            <label>Task 3: </label>
+            <input type="text" id="task3">
+          </div>
+          <div class="medium-3 cell">
+            <button type="button" style="margin-top:25px;" id="myTaskBtn" class="warning button extended hollow" onclick="myPromises()">Start task</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p id='result'></p>
+    <hr/>
   </div>
 </div>
 
@@ -226,6 +250,42 @@ function myHoverIn(){
 function myHoverOut(){
   document.getElementById("myP").style.fontSize = "medium";
 }
+//................................................................
+//promises
+function myPromises(){
+  let cleanRoom = function(){
+
+  	return new Promise(function(resolve, reject){
+    	resolve("Task "+document.getElementById('task1').value + " done...;");
+    });
+
+  };
+
+  let finishCoding = function(message){
+
+  	return new Promise(function(resolve, reject){
+    	resolve(message+ " Task "+document.getElementById('task2').value + " done...;");
+    });
+
+  };
+
+  let watchMovie = function(message){
+
+  	return new Promise(function(resolve, reject){
+    	resolve(message+ " Task "+document.getElementById('task3').value + " done... bye");
+    });
+
+  };
+
+  cleanRoom().then(function(result){
+    return finishCoding(result);
+  }).then(function(result){
+    return watchMovie(result);
+  }).then(function(result){
+    document.getElementById('result').innerHTML = result;
+  });
+}
+
 </script>
 
 <script src="js/vendor/jquery.js"></script>
