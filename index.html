@@ -1,191 +1,236 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Class</title>
-    <link rel="stylesheet" href="../css/foundation.css">
-    <link rel="stylesheet" href="../css/app.css">
-  </head>
-  <body>
-    <embed class="cy_logo" type="image/svg+xml" src="src/cytonn_logo.svg" /></div>
-    <!-- navigartion -->
-      <nav class="top-bar" data-topbar role="navigation" style="height: 80px;margin-bottom: 30px;background-color: #006666;color: white;">
-        <div class="container" style="height: 55px;">
-          <ul class="title-area">
-            <li class="name">
-              <a class="nav_link" href="#">Home</a>
-            </li>
-            <li class="name">
-              <a class="nav_link" href="#">Food Menu</a>
-            </li>
-          </ul>
-        </div>
-     </nav>
-     <div class="container">
-       <div class="grid-container">
-         <h4>Encapsulation ...</h4>
-           <p>Example, getting from the session, cookies....</p>
-           <p><span id="demo_encaps"></span></p>
-           <hr/>
-         <h4>Prototype && Closure concepts...</h4>
-         <h4>Employee</h4>
-         <div class="row">
-           <form action="" method="get">
-             <div class="grid-container">
-               <div class="grid-x grid-padding-x">
-                 <div class="medium-4 cell">
-                   <label>First Name: </label>
-                     <input type="text" name="firstname" id="firstname">
-                 </div>
-                 <div class="medium-4 cell">
-                   <label>Last Name: </label>
-                   <input type="text" name="lastname" id="lastname">
-                 </div>
-                 <div class="medium-4 cell">
-                   <button type="button" style="margin-top:25px;"class="success button extended hollow" onclick="(newEmployeeEmail());">Get Cytonn Email</button>
-                 </div>
-               </div>
-             </div>
-            </form>
-          </br>
-          <h4>Intern</h4>
-          <form action="" method="get">
-            <div class="grid-container">
-              <div class="grid-x grid-padding-x">
-                <div class="medium-3 cell">
-                  <label>First Name: </label>
-                    <input type="text" name="firstname" id="firstIntname">
-                </div>
-                <div class="medium-3 cell">
-                  <label>Last Name: </label>
-                  <input type="text" name="lastname" id="lastIntname">
-                </div>
-                <div class="medium-3 cell">
-                  <label>Last Name: </label>
-                  <input type="text" name="lastname" id="phone">
-                </div>
-                <div class="medium-3 cell">
-                  <button type="button" style="margin-top:25px;"class="success button extended hollow" onclick="(newEmployeeEmail());">Get Cytonn Email</button>
-                </div>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Class</title>
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+  <embed class="cy_logo" type="image/svg+xml" src="src/cytonn_logo.svg" /></div>
+  <!-- navigartion -->
+  <nav class="top-bar" data-topbar role="navigation" style="height: 80px;margin-bottom: 30px;background-color: #006666;color: white;">
+    <div class="container" style="height:                           55px;">
+      <ul class="title-area">
+        <li class="name">
+          <a class="nav_link" href="#">Home</a>
+        </li>
+        <li class="name">
+          <a class="nav_link" href="#">Food Menu</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="grid-container">
+      <h4>Encapsulation ...</h4>
+      <p>Example, getting from the session, cookies....</p>
+      <p><span id="demo_encaps"></span></p>
+      <hr/>
+      <h4>Prototype && Closure concepts...</h4>
+      <h4>Employee</h4>
+      <div class="row">
+        <form action="" method="get">
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+              <div class="medium-4 cell">
+                <label>First Name: </label>
+                <input type="text" name="firstname" id="firstname">
+              </div>
+              <div class="medium-4 cell">
+                <label>Last Name: </label>
+                <input type="text" name="lastname" id="lastname">
+              </div>
+              <div class="medium-4 cell">
+                <button type="button" style="margin-top:25px;"class="success button extended hollow" onclick="(newEmployeeEmail());">Get Cytonn Email</button>
               </div>
             </div>
-           </form>
-         </div>
-         <p>User Email:&nbsp;&nbsp;<span id="intern"></span></p>
-         <hr/>
-         <h4>Objects concept...</h4>
-         <form>
-           <div class="grid-container">
-             <div class="grid-x grid-padding-x">
-               <div class="medium-3 cell">
-                 <label>Lesson Time: </label>
-                   <input type="text" name="time" id="time">
-               </div>
-               <div class="medium-3 cell">
-                 <label>Tutor Name: </label>
-                 <input type="text" name="tutorname" id="tutorname">
-               </div>
-               <div class="medium-3 cell">
-                 <label>Room Name: </label>
-                 <input type="text" name="room" id="room">
-               </div>
-               <div class="medium-3 cell">
-                 <button type="button" style="margin-top:25px;"class="success button extended hollow" onclick="(lessonSchedule());">Save Lesson Details</button>
-               </div>
-             </div>
-           </div>
-         </form>
-         <p>Todays' Class:&nbsp;&nbsp;<span id="lesson_detail"></span></p>
-       </div>
-     </div>
+          </div>
+        </form>
+      </br>
+      <h4>Intern</h4>
+      <form action="" method="get">
+        <div class="grid-container">
+          <div class="grid-x grid-padding-x">
+            <div class="medium-3 cell">
+              <label>First Name: </label>
+              <input type="text" name="firstname" id="firstIntname">
+            </div>
+            <div class="medium-3 cell">
+              <label>Last Name: </label>
+              <input type="text" name="lastname" id="lastIntname">
+            </div>
+            <div class="medium-3 cell">
+              <label>Last Name: </label>
+              <input type="text" name="lastname" id="phone">
+            </div>
+            <div class="medium-3 cell">
+              <button type="button" style="margin-top:25px;"class="success button extended hollow" onclick="(newEmployeeEmail());">Get Cytonn Email</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <p>User Email:&nbsp;&nbsp;<span id="intern"></span></p>
+    <hr/>
+    <h4>Objects concept...</h4>
+    <form>
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="medium-3 cell">
+            <label>Lesson Time: </label>
+            <input type="text" name="time" id="time">
+          </div>
+          <div class="medium-3 cell">
+            <label>Tutor Name: </label>
+            <input type="text" name="tutorname" id="tutorname">
+          </div>
+          <div class="medium-3 cell">
+            <label>Room Name: </label>
+            <input type="text" name="room" id="room">
+          </div>
+          <div class="medium-3 cell">
+            <button type="button" style="margin-top:25px;"class="success button extended hollow" onclick="(lessonSchedule());">Save Lesson Details</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p>Todays' Class:&nbsp;&nbsp;<span id="lesson_detail"></span></p>
+    <hr/>
+    <h4>Custom Event</h4>
+    <button id="myCustomBtn" class="button">Launch Alert Event</button>
+    <p id='demo'></p>
+    <hr/>
+    <h4>Builtin Event</h4>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="medium-4 cell">
+        <button id="myCustomBtn2" onmouseover="myHoverIn()" onmouseout="myHoverOut()"class="button">Launch Alert Event</button>
+        </div>
+        <div class="medium-8 cell">
+          <p id='myP'>I LOVE CODING SOOOOOOO MUCH....</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>
 
-     <script type="text/javascript">
-          // strict directive
-          "use strict"
-          //..................................................................
-          //Use of function
-          function newEmployeeEmail(){
+<script type="text/javascript">
+// strict directive
+"use strict"
+//..................................................................
+//Use of function
+function newEmployeeEmail(){
 
-              let fname = document.getElementById("firstname").value;
-              let lname = document.getElementById("lastname").value;
+  let fname = document.getElementById("firstname").value;
+  let lname = document.getElementById("lastname").value;
 
-              // let fIntName = document.getElementById("firstIntname").value;
-              // let lintName = document.getElementById("lastIntname").value;
-              // let phoneInt = document.getElementById("phone").value;
-
-
-            //constructor to initialize firstName, lastName and Department
-            function Employee(firstName, lastName) {
-                 this.firstName = firstName;
-                 this.lastName = lastName;
-             }
-
-            //Use of Closure
-             Employee.prototype.email = function() {return this.firstName.slice(0,1)+this.lastName + "@cytonn.com"};
-
-             //Use of Prototype
-             let newEmployee = new Employee(fname,lname);
-
-             //inherintance using call function
-             // Intern constructor
-             function Intern(firstName, lastName, phone){
-               Employee.call(this, firstName, lastName);
-               this.phone = phone;
-             }
-             // subclass extends superclass
-             Intern.prototype = Object.create(Employee.prototype);
-             Intern.prototype.constructor = Employee;
-
-             let newIntern = new Intern("fIntName", "lintName", "12345678");
-
-             //returned by newInternEmail function
-            document.getElementById("intern").innerHTML = newEmployee.email();
-          }
-          //..................................................................
+  // let fIntName = document.getElementById("firstIntname").value;
+  // let lintName = document.getElementById("lastIntname").value;
+  // let phoneInt = document.getElementById("phone").value;
 
 
-          //..................................................................
-          // self-invoking function
-         (function() {
-           // Encapsulation: variables x in the function is separate scope from rest...
-            let x = '';
+  //constructor to initialize firstName, lastName and Department
+  function Employee(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
-            function Employee () {
-              document.getElementById("demo_encaps").innerHTML = "Hello: "+x;
-            }
+  //Use of Closure
+  Employee.prototype.email = function() {return this.firstName.slice(0,1)+this.lastName + "@cytonn.com"};
 
-            x = "Michael_Mukolwe_Olukaka";
-            Employee();
-         })();
-         //testing the scope of x and myFunction...
-         //alert(typeof x);               // undefined
-         //..................................................................
-         //use of a constructor function
-         function lessonDetails(time, tutor, room){
-           this.time = time;
-           this.tutor = tutor;
-           this.room = room;
-         }
+  //Use of Prototype
+  let newEmployee = new Employee(fname,lname);
 
-         function lessonSchedule(){
-           let time = document.getElementById("time").value;
-           let tutor = document.getElementById("tutorname").value;
-           let room = document.getElementById("room").value;
+  //inherintance using call function
+  // Intern constructor
+  function Intern(firstName, lastName, phone){
+    Employee.call(this, firstName, lastName);
+    this.phone = phone;
+  }
+  // subclass extends superclass
+  Intern.prototype = Object.create(Employee.prototype);
+  Intern.prototype.constructor = Employee;
 
-           //creating the object lessonDetails
-           let lesson = new lessonDetails(time, tutor, room);
+  let newIntern = new Intern("fIntName", "lintName", "12345678");
 
-           document.getElementById("lesson_detail").innerHTML = "Time:&nbsp;"+lesson.time+", Tutor: "+lesson.tutor+", Room: "+ lesson.room;
-           //..................................................................
+  //returned by newInternEmail function
+  document.getElementById("intern").innerHTML = newEmployee.email();
+}
+//..................................................................
 
-       }
-     </script>
 
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+//..................................................................
+// self-invoking function
+(function() {
+  // Encapsulation: variables x in the function is separate scope from rest...
+  let x = '';
+
+  function Employee () {
+    document.getElementById("demo_encaps").innerHTML = "Hello: "+x;
+  }
+
+  x = "Michael_Mukolwe_Olukaka";
+  Employee();
+})();
+//testing the scope of x and myFunction...
+//alert(typeof x);               // undefined
+//..................................................................
+//use of a constructor function
+function lessonDetails(time, tutor, room){
+  this.time = time;
+  this.tutor = tutor;
+  this.room = room;
+}
+
+function lessonSchedule(){
+  let time  = document.getElementById("time").value;
+  let tutor = document.getElementById("tutorname").value;
+  let room  = document.getElementById("room").value;
+
+  //creating the object lessonDetails
+  let lesson = new lessonDetails(time, tutor, room);
+
+  document.getElementById("lesson_detail").innerHTML = "Time:&nbsp;"+lesson.time+", Tutor: "+lesson.tutor+", Room: "+ lesson.room;
+}
+//...................................................................
+
+//custom event
+let mybtn = document.getElementById("myCustomBtn");
+
+mybtn.addEventListener("myCustEvent", doSomething, false);
+
+function doSomething(e) {
+  console.log("Here");
+  // alert("Event is called: " + e.detail.firstName);
+}
+
+var custEvent = new CustomEvent("myCustEvent",
+    {
+        'detail': {
+          email:     "molukaka@cytonn.com",
+          firstName: 'Michael',
+          lastName:  'Olukaka'
+        }
+    });
+document.getElementById('demo').dispatchEvent(custEvent);
+
+//................................................................
+//built in Event
+function myHoverIn(){
+  document.getElementById("myP").style.fontSize = "x-large";
+}
+function myHoverOut(){
+  document.getElementById("myP").style.fontSize = "medium";
+}
+</script>
+
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.js"></script>
+<script src="js/app.js"></script>
+</body>
 </html>
