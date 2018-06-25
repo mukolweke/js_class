@@ -100,8 +100,7 @@
     <p>Todays' Class:&nbsp;&nbsp;<span id="lesson_detail"></span></p>
     <hr/>
     <h4>Custom Event</h4>
-    <button id="myCustomBtn" class="button">Launch Alert Event</button>
-    <p id='demo'></p>
+    <span id="main"></span><span style="float: right;" id="main_result"></span>
     <hr/>
     <h4>Builtin Event</h4>
     <div class="grid-container">
@@ -115,6 +114,30 @@
       </div>
     </div>
     <hr>
+    <h4>Promises in JS</h4>
+    <form>
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="medium-3 cell">
+            <label>Task 1: </label>
+            <input type="text" id="task1">
+          </div>
+          <div class="medium-3 cell">
+            <label>Task 2: </label>
+            <input type="text" id="task2">
+          </div>
+          <div class="medium-3 cell">
+            <label>Task 3: </label>
+            <input type="text" id="task3">
+          </div>
+          <div class="medium-3 cell">
+            <button type="button" style="margin-top:25px;" id="myTaskBtn" class="warning button extended hollow" onclick="myPromises()">Start task</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p id='result'></p>
+    <hr/>
   </div>
 </div>
 
@@ -198,25 +221,57 @@ function lessonSchedule(){
 }
 //...................................................................
 
-//custom event
-let mybtn = document.getElementById("myCustomBtn");
+// custom event ...
 
-mybtn.addEventListener("myCustEvent", doSomething, false);
+// events created ....
+let born = new Event('born');
+let died = new CustomEvent('died', {detail:{time:Date.now()}});
 
-function doSomething(e) {
-  console.log("Here");
-  // alert("Event is called: " + e.detail.firstName);
+document.addEventListener('DOMContentLoaded',()=>{
+    let main = document.getElementById('main');
+
+    // paragraph automatically created to main....
+    addParagraph(main, "This is paragraph 1");
+    addParagraph(main, "This is paragraph 2");
+
+    main.addEventListener('click', (ev)=>{
+        removeParagraph(main, main.firstElementChild);
+    })
+});
+
+let addParagraph = (parent, txt) => {
+    let p = document.createElement('p');
+    p.textContent = txt;
+
+    //set up and dispatch events (custom event)
+    p.addEventListener('born', wasBorn); // listened for the type ...
+    p.addEventListener('died', hasDied);
+    p.dispatchEvent(born); // dispatched the object ...
+
+
+    //add to screen
+    parent.appendChild(p);
 }
 
-var custEvent = new CustomEvent("myCustEvent",
-    {
-        'detail': {
-          email:     "molukaka@cytonn.com",
-          firstName: 'Michael',
-          lastName:  'Olukaka'
-        }
-    });
-document.getElementById('demo').dispatchEvent(custEvent);
+let removeParagraph = (parent, p) => {
+    //dispatch event
+    p.dispatchEvent(died); //object dispatched
+
+    //remove element from screen
+    parent.removeChild(p);
+}
+
+let wasBorn = (ev) => {
+    console.log(ev.type, ev.target); //target is the paragraph
+}
+
+let hasDied = (ev) => {
+    console.log(ev.type, ev.target, ev.detail.time); //target is the paragraph
+
+    // remove the listeners
+    ev.target.removeEventListener('born', wasBorn);
+    ev.target.removeEventListener('died', hasDied);
+}
 
 //................................................................
 //built in Event
@@ -226,6 +281,42 @@ function myHoverIn(){
 function myHoverOut(){
   document.getElementById("myP").style.fontSize = "medium";
 }
+//................................................................
+//promises
+function myPromises(){
+  let cleanRoom = function(){
+
+  	return new Promise(function(resolve, reject){
+    	resolve("Task "+document.getElementById('task1').value + " done...;");
+    });
+
+  };
+
+  let finishCoding = function(message){
+
+  	return new Promise(function(resolve, reject){
+    	resolve(message+ " Task "+document.getElementById('task2').value + " done...;");
+    });
+
+  };
+
+  let watchMovie = function(message){
+
+  	return new Promise(function(resolve, reject){
+    	resolve(message+ " Task "+document.getElementById('task3').value + " done... bye");
+    });
+
+  };
+
+  cleanRoom().then(function(result){
+    return finishCoding(result);
+  }).then(function(result){
+    return watchMovie(result);
+  }).then(function(result){
+    document.getElementById('result').innerHTML = result;
+  });
+}
+
 </script>
 
 <script src="js/vendor/jquery.js"></script>
